@@ -90,7 +90,7 @@ p {
 	margin: 0px;
 }
 
-.TextMessage_Message > a {
+.TextMessage_Message > a:link {
 	color: #9988FF;
 	text-decoration: underline;
 	}
