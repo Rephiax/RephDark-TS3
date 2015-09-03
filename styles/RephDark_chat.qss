@@ -1,0 +1,174 @@
+/*
+ * TeamSpeak 3 Customized Classic Qt StyleSheet
+ * Special file for ChatLog, loaded in addition to global classic.qss stylesheet
+ *
+ * Copyright (c) 2009-2015 TeamSpeak Systems GmbH
+ *
+ * Supported HTML Subset:
+ * 
+ *  TeamSpeak 3 allows you to use a subset of CSS2 for styling as defined by the following page:
+ *
+ *  http://qt-project.org/doc/qt-4.8/richtext-html-subset.html#css-properties
+ *
+ * ===
+ * === Chat Message Syntax Example:
+ * ===
+ *
+ *  <p class="{PRIMARY_CLASS}">
+ *    <span class="Body">
+ *      <img src="...">
+ *      <span class="{SECONDARY_CLASS}">...</span>
+ *      <a class="{SECONDARY_CLASS}" href="...">...</a>:
+ *      <span class="{SECONDARY_CLASS}">
+ *        ...
+ *      </span>
+ *  </p>
+ *
+ * ===
+ * === Primary Classes:
+ * ===
+ *  
+ *  - TextMessage_Normal                   :: informational message
+ *  - TextMessage_Welcome                  :: server welcome message
+ *  - TextMessage_HostMessage              :: server host message
+ *  - TextMessage_Message                  :: text messages (details below)
+ *  - TextMessage_Poke                     :: poke messages
+ *  - TextMessage_Connected                :: own client connected to server
+ *  - TextMessage_Disconnected             :: own client disconnected from server
+ *  - TextMessage_ClientConnected          :: other client connected to server
+ *  - TextMessage_ClientDisconnected       :: other client connected from server
+ *  - TextMessage_ClientJoined             :: other client joined channel
+ *  - TextMessage_ClientLeft               :: other client left channel
+ *  - TextMessage_ClientSwitched           :: own/other client switched channel
+ *  - TextMessage_ClientDropped            :: own/other client timed out
+ *  - TextMessage_ClientKicked             :: own/other client kicked
+ *  - TextMessage_ClientBanned             :: own/other client banned
+ *  - TextMessage_ChannelCreated           :: channel created
+ *  - TextMessage_ChannelDeleted           :: channel deleted
+ *  - TextMessage_ChannelMoved             :: channel parent changed
+ *  - TextMessage_ChannelEdited            :: channel edited
+ *  - TextMessage_ServerEdited             :: server edited
+ *  - TextMessage_ServerError              :: server error
+ *  - TextMessage_GroupAssigned            :: channel/server group assigned
+ *  - TextMessage_GroupRevoked             :: channel/server group revoked
+ *  - TextMessage_TalkPowerAssigned        :: talk power granted
+ *  - TextMessage_TalkPowerRevoked         :: talk power revoked
+ *  - TextMessage_TalkPowerRequested       :: talk power requested
+ *  - TextMessage_BeginHistory             :: History begins (loaded old history)
+ *  - TextMessage_EndHistory               :: History ends (end of previous chat session)
+ *
+ *  The TextMessage_Message class can be used in combination with additional classes to identify specific messages.
+ *  Currently, we provide the following:
+ *
+ *  - Incoming                             :: incoming text messages
+ *  - Outgoing                             :: outgoing text messages
+ *  - Friend                               :: text messages sent by friends
+ *  - Blocked                              :: text messages sent by blocked users
+ *  - Private                              :: text messages in a private chat tab
+ *  - Public                               :: text messages in a channel/server chat tab
+ *
+ *  The CSS definition for a private text message sent by a friend would look like this:
+ *
+ *  .TextMessage_Message.Friend.Private { ... }
+ *
+ * ===
+ * === Secondary Classes (used within all of the above where applicable):
+ * ===
+ *  
+ *  - TextMessage_UserLink                 :: user nickname 
+ *  - TextMessage_ChannelLink              :: channel name
+ *  - TextMessage_ServerLink               :: server name
+ *  - TextMessage_Time                     :: message time
+ *  - TextMessage_Text                     :: message text
+ *  - TextMessage_OfflineLink              :: New Offline Message Notification message
+ *  - TextMessage_HostName                 :: Hostname during initial stages of connection (resolving foo.bar, connecting to foo.bar)
+ */
+
+/* Remove the default padding / margin from p Tags to avoid ugly spacing in the chat area. Every style should probably have this */
+p {
+	padding: 0px;
+	margin: 0px;
+}
+
+.TextMessage_Message > a {
+	color: #9988FF;
+	text-decoration: underline;
+	}
+
+.TextMessage_Time {
+	color: #888888;
+}
+
+.TextMessage_UserLink {
+	color: #F0A27A;
+	text-decoration: none;
+}
+
+.TextMessage_ChannelLink{
+	color: orange;
+	text-decoration: none;
+}
+
+.TextMessage_ServerLink {
+	color: yellow;
+	text-decoration: none;
+}
+
+.TextMessage_Connected,
+.TextMessage_ClientConnected,
+.TextMessage_ClientJoined {
+	color: #3FD48A;
+}
+
+.TextMessage_Disconnected,
+.TextMessage_ClientDisconnected,
+.TextMessage_ClientLeft {
+	color: #A6A600;
+}
+
+.TextMessage_TalkPowerAssigned,
+.TextMessage_TalkPowerRevoked,
+.TextMessage_ClientSwitched {
+	color: #3A5ECA;
+}
+
+.TextMessage_ClientDropped,
+.TextMessage_ClientKicked,
+.TextMessage_ClientBanned {
+	color: red;
+}
+
+.TextMessage_ChannelCreated,
+.TextMessage_ChannelDeleted,
+.TextMessage_ChannelEdited,
+.TextMessage_ChannelMoved,
+.TextMessage_ServerEdited {
+	color: yellow;
+}
+
+.TextMessage_GroupAssigned,
+.TextMessage_GroupRevoked {
+	color: #696969;
+}
+
+.TextMessage_BeginHistory,
+.TextMessage_EndHistory {
+	color: #14B7C9;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.TextMessage_ServerError {
+	color: red;
+}
+
+.TextMessage_HostName {
+	color: orange;
+	font-weight: bold;
+}
+
+.TextMessage_OfflineLink {
+	color: blue;
+	text-decoration: underline;
+	font-weight: bold;
+}
